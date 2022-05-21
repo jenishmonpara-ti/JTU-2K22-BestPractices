@@ -50,9 +50,12 @@ MIDDLEWARE = [
 
 ]
 
+REST_FRAMEWORK_PAGE_SIZE = 10
+
+
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 10,
+    'PAGE_SIZE': REST_FRAMEWORK_PAGE_SIZE,
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
@@ -80,9 +83,10 @@ TEMPLATES = [
     },
 ]
 
+LOGGING_VERSION = 1
 
 LOGGING = {
-    'version': 1,
+    'version': LOGGING_VERSION,
     'disable_existing_loggers': False,
     'handlers': {
         'file': {
