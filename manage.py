@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-import os
-import sys
+import os.environ
+import sys.argv
 from django.core.management.commands.runserver import Command as runserver
 
 if __name__ == "__main__":
@@ -20,5 +20,5 @@ if __name__ == "__main__":
                 "available on your PYTHONPATH environment variable? Did you "
                 "forget to activate a virtual environment?"
             )
-        raise
+        raise # raise what ? Why is a blank raise used
     execute_from_command_line(sys.argv)
