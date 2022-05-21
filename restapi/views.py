@@ -46,9 +46,8 @@ def balance(request):
                 final_balance[to_user] = final_balance.get(to_user, 0) - eb['amount']
             if to_user == user.id:
                 final_balance[from_user] = final_balance.get(from_user, 0) + eb['amount']
-    final_balance = {k: v for k, v in final_balance.items() if v != 0}
 
-    response = [{"user": k, "amount": int(v)} for k, v in final_balance.items()]
+    response = [{"user": k, "amount": int(v)} for k, v in final_balance.items() if v != 0]
     return Response(response, status=200)
 
 
