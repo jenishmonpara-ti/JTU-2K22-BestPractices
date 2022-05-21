@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import const.py
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -19,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '$%g=*x547u*)84y)37pbm(2(4ravpv#o6+h1w@f0-*#552um-e'
+SECRET_KEY = KEYS['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -50,12 +51,12 @@ MIDDLEWARE = [
 
 ]
 
-REST_FRAMEWORK_PAGE_SIZE = 10
+
 
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': REST_FRAMEWORK_PAGE_SIZE,
+    'PAGE_SIZE': CONSTANTS['REST_FRAMEWORK_PAGE_SIZE'],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
@@ -83,10 +84,10 @@ TEMPLATES = [
     },
 ]
 
-LOGGING_VERSION = 1
+
 
 LOGGING = {
-    'version': LOGGING_VERSION,
+    'version': CONSTANTS['LOGGING_VERSION'],
     'disable_existing_loggers': False,
     'handlers': {
         'file': {
